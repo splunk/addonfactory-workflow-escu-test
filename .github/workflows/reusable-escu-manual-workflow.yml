@@ -117,6 +117,7 @@ jobs:
         id: validate-version
         shell: bash
         run: |
+          set +e
           ADDON_URL=${{ needs.setup.outputs.addon-upload-path }}
           echo "$ADDON_URL"
           aws s3 ls $ADDON_URL
