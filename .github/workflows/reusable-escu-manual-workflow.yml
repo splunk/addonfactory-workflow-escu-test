@@ -126,13 +126,14 @@ jobs:
           fi
           exit $exit_code
 
-  # run-escu-tests:
-  #   if: ${{ needs.test-inventory.outputs.escu == 'true' }}
-  #   needs:
-  #     - test-inventory
-  #     - setup
-  #     - meta
-  #   runs-on: ubuntu-latest
+  run-escu-tests:
+    if: ${{ needs.test-inventory.outputs.escu == 'true' && needs.validate-build.result == 'success' }}
+    needs:
+      - test-inventory
+      - setup
+      - meta
+      - validate-build
+    runs-on: ubuntu-latest
   #   strategy:
   #     fail-fast: false
   #     matrix:
@@ -147,16 +148,16 @@ jobs:
   #     ARGO_BASE_HREF: ${{ needs.setup.outputs.argo-href }}
   #     ARGO_NAMESPACE: ${{ needs.setup.outputs.argo-namespace }}
   #     TEST_TYPE: "escu"
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         submodules: recursive
-  #     - name: Configure AWS credentials
-  #       uses: aws-actions/configure-aws-credentials@v1
-  #       with:
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
   #     - name: Read secrets from AWS Secrets Manager into environment variables
   #       id: get-argo-token
   #       run: |
