@@ -102,7 +102,7 @@ jobs:
           echo "::set-output name=directory-path::/tmp"
           echo "::set-output name=s3-bucket::ta-production-artifacts"
 
-  validate-version:
+  validate-build:
     needs:
       - setup
     runs-on: ubuntu-latest
@@ -113,8 +113,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-      - name: Validate addon version
-        id: validate-version
+      - name: Validate TA build number
+        id: validate-build-number
         shell: bash
         run: |
           set +e
