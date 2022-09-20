@@ -136,13 +136,13 @@ jobs:
           prerelease: true
           automatic_release_tag: v${{ github.event.inputs.tag }}
       - name: Download package-deployment
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         id: download-package-deployment
         with:
           name: package-deployment
           path: download/artifacts/
       - name: Download package-splunkbase
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         id: download-package-splunkbase
         with:
           name: package-splunkbase
