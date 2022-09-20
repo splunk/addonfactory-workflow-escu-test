@@ -121,7 +121,7 @@ jobs:
           ADDON_URL=${{ needs.setup.outputs.addon-upload-path }}
           echo "$ADDON_URL"
           aws s3 ls $ADDON_URL
-          echo $?
+          exit 1
 
   # run-escu-tests:
   #   if: ${{ needs.test-inventory.outputs.escu == 'true' }}
