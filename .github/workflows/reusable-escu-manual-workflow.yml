@@ -121,7 +121,11 @@ jobs:
           ADDON_URL=${{ needs.setup.outputs.addon-upload-path }}
           echo "$ADDON_URL"
           aws s3 ls $ADDON_URL
-          exit 1
+          exit_code=$?
+          if [[ $exit_code -ne 0 ]]; then
+            echo "Invalid TA build number"
+          fi
+          exit $exit_code
 
   # run-escu-tests:
   #   if: ${{ needs.test-inventory.outputs.escu == 'true' }}
