@@ -1,6 +1,7 @@
 {
     "extends": [
         "config:base",
+        "group:all",
         ":semanticCommitTypeAll(chore)",
         ":prHourlyLimit2"
     ],
@@ -45,17 +46,7 @@
                 "urllib3"
             ],
             "allowedVersions": "<2.0.0"
-        },
-        {
-            "matchManagers": ["npm"],
-            "groupName": "javascript dependencies",
-            "labels": ["dependencies", "javascript"]
-       },
-       {
-            "matchManagers": ["poetry"],
-            "groupName": "python dependencies",
-            "labels": ["dependencies", "python"]
-       },
+        }
     ],
     "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
