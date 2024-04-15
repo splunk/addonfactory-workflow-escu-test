@@ -9,6 +9,7 @@
         "constraints": {
             "python": "~3.7"
         },
+        "constraintsFiltering": "strict",
         "packageRules": [
             {
                 "description": "We support only Python 3.7.* for now, we don't need Python version updates",
@@ -52,6 +53,5 @@
     ],
     "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
-    ],
-    "constraintsFiltering": "strict"
+    ]
 }
