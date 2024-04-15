@@ -10,7 +10,19 @@
             "python": "3.7.17",
             "poetry": "1.5.1"
         },
-        "constraintsFiltering": "strict"
+        "constraintsFiltering": "strict",
+        "packageRules": [
+            {
+                "description": "We support only Python 3.7.* for now, we don't need Python version updates",
+                "enabled": false,
+                "matchManagers": [
+                    "poetry"
+                ],
+                "matchPackageNames": [
+                    "python"
+                ]
+            }
+        ]
     },
     "schedule": [
         "before 4am on the first day of the month"
