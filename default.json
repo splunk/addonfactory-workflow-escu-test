@@ -7,7 +7,7 @@
     ],
     "force": {
         "constraints": {
-            "python": "3.7.17",
+            "python": "=>3.7, <3.8",
             "poetry": "1.5.1"
         },
         "constraintsFiltering": "strict"
