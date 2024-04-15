@@ -38,5 +38,10 @@
     ],
     "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
-    ]
+    ],
+      "hostRules": [
+        {
+          "timeout": 240000
+        }
+  ]
 }
