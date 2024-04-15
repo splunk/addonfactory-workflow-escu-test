@@ -34,12 +34,6 @@
                 "urllib3"
             ],
             "allowedVersions": "<2.0.0"
-        },
-        {
-            "matchPackageNames": [
-                "python"
-            ],
-            "rangeStrategy": "in-range-only"
         }
     ],
     "ignoreDeps": [
