@@ -7,7 +7,7 @@
     ],
     "force": {
         "constraints": {
-            "python": "3.7.17",
+            "python": "3.7",
             "poetry": "1.5.1"
         },
         "constraintsFiltering": "strict"
@@ -38,10 +38,5 @@
     ],
     "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
-    ],
-      "hostRules": [
-        {
-          "timeout": 240000
-        }
-  ]
+    ]
 }
