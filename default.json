@@ -3,7 +3,9 @@
         "config:base",
         "group:all",
         ":semanticCommitTypeAll(chore)",
-        ":prHourlyLimit2"
+        ":prHourlyLimit2",
+        "schedule:monthly",
+        ":maintainLockFilesMonthly"
     ],
     "force": {
         "constraints": {
@@ -30,9 +32,6 @@
     ],
     "rangeStrategy": "pin",
     "prConcurrentLimit": 5,
-    "ignoreDeps": [
-        "splunk-add-on-ucc-modinput-test"
-    ],
     "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
     ]
