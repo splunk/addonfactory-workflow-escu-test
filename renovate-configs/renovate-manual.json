@@ -1,6 +1,6 @@
 {
     "extends": [
-        "renovate-base",
+        "github>splunk/addonfactory-workflow-escu-test//renovate-configs/renovate-base",
         "group:all"
 ]
 }
