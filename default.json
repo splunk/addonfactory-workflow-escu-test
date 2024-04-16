@@ -1,12 +1,34 @@
 {
-  "extends": [
-    "config:base",
-    "group:all",
-  ],
-  "enabledManagers": ["poetry", "npm"],
-  "rangeStrategy": "pin",
-  "prConcurrentLimit": 5,
-  "ignoreDeps": [
+    "extends": [
+        "config:base",
+        "group:all"
+    ],
+    "force": {
+        "constraints": {
+            "python": "3.7.17",
+            "poetry": "1.5.1"
+        },
+        "constraintsFiltering": "strict",
+        "packageRules": [
+            {
+                "description": "We support only Python 3.7.* for now, we don't need Python version updates",
+                "enabled": false,
+                "matchManagers": [
+                    "poetry"
+                ],
+                "matchPackageNames": [
+                    "python"
+                ]
+            }
+        ]
+    },
+    "enabledManagers": [
+        "poetry",
+        "npm"
+    ],
+    "rangeStrategy": "pin",
+    "prConcurrentLimit": 5,
+    "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
     ]
 }
