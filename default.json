@@ -32,5 +32,8 @@
     "prConcurrentLimit": 5,
     "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
+    ],
+    "ignoreDeps": [
+        "splunk-add-on-ucc-modinput-test"
     ]
 }
