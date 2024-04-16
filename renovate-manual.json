@@ -1,0 +1,148 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":semanticCommitTypeAll(chore)",
+        ":maintainLockFilesMonthly",
+        ":prHourlyLimit2"
+    ],
+    "force": {
+        "constraints": {
+            "python": "3.7.17",
+            "poetry": "1.5.1"
+        },
+        "constraintsFiltering": "strict",
+        "packageRules": [
+            {
+                "description": "We support only Python 3.7.* for now, we don't need Python version updates",
+                "enabled": false,
+                "matchManagers": [
+                    "poetry"
+                ],
+                "matchPackageNames": [
+                    "python"
+                ]
+            }
+        ]
+    },
+    "prConcurrentLimit": 5,
+    "rangeStrategy": "pin",
+    "dependencyDashboardApproval": true,
+    "transitiveRemediation": true,
+    "enabledManagers": [
+        "poetry",
+        "npm",
+        "gradle"
+    ],
+    "separateMinorPatch": true,
+    "labels": [
+        "dependencies"
+    ],
+    "vulnerabilityAlerts": {
+        "labels": [
+            "dependencies",
+            "security"
+        ]
+    },
+    "packageRules": [
+        {
+            "groupName": "splunk dependencies",
+            "matchPackageNames": [
+                "splunktaucclib",
+                "splunktalib",
+                "splunk-add-on-ucc-framework",
+                "pytest-splunk-addon",
+                "splunk-packaging-toolkit",
+                "pytest-splunk-addon-ui-smartx"
+            ],
+            "labels": [
+                "dependencies",
+                "splunk-packages"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "matchManagers": [
+                "poetry"
+            ],
+            "groupName": "python dependencies",
+            "labels": [
+                "dependencies",
+                "python",
+                "patch"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "major"
+            ],
+            "matchManagers": [
+                "poetry"
+            ],
+            "labels": [
+                "dependencies",
+                "python"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "matchManagers": [
+                "npm"
+            ],
+            "groupName": "javascript dependencies",
+            "labels": [
+                "dependencies",
+                "javascript",
+                "patch"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "major"
+            ],
+            "matchManagers": [
+                "npm"
+            ],
+            "labels": [
+                "dependencies",
+                "javascript"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "matchManagers": [
+                "gradle"
+            ],
+            "groupName": "java dependencies",
+            "labels": [
+                "dependencies",
+                "java",
+                "patch"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "major"
+            ],
+            "matchManagers": [
+                "gradle"
+            ],
+            "labels": [
+                "dependencies",
+                "java"
+            ]
+        }
+    ],
+    "ignoreDeps": [
+        "splunk-add-on-ucc-modinput-test"
+    ]
+}
