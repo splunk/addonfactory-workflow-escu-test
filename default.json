@@ -3,7 +3,9 @@
         "config:base",
         "group:all",
         ":semanticCommitTypeAll(chore)",
-        ":prHourlyLimit2"
+        ":prHourlyLimit2",
+        "schedule:monthly",
+        ":maintainLockFilesMonthly"
     ],
     "force": {
         "constraints": {
@@ -23,16 +25,7 @@
                 ]
             }
         ]
-    },
-    "schedule": [
-        "before 4am on the first day of the month"
-    ],
-    "lockFileMaintenance": {
-        "enabled": true,
-        "schedule": [
-            "before 4am on the first day of the month"
-        ]
-    },
+    }
     "enabledManagers": [
         "poetry",
         "npm",
