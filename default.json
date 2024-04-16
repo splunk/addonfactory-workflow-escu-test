@@ -2,34 +2,10 @@
   "extends": [
     "config:base",
     "group:all",
-    ":semanticCommitTypeAll(chore)",
-    ":prHourlyLimit2"
   ],
-  "force": {
-    "packageRules": [
-      {
-        "description": "We support only Python 3.7.* for now, we don't need Python version updates",
-        "enabled": false,
-        "matchManagers": ["poetry"],
-        "matchPackageNames": ["python"]
-      }
-    ]
-  },
-  "reviewers": ["team:products-gdi-addons-adminrepo"],
-  "schedule": ["before 4am on the first day of the month"],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["before 4am on the first day of the month"]
-  },
-  "enabledManagers": ["poetry", "npm", "gradle"],
+  "enabledManagers": ["poetry", "npm"],
   "rangeStrategy": "pin",
   "prConcurrentLimit": 5,
-  "packageRules": [
-    {
-      "matchPackageNames": ["urllib3"],
-      "allowedVersions": "<2.0.0"
-    }
-  ],
   "ignoreDeps": [
         "splunk-add-on-ucc-modinput-test"
     ]
