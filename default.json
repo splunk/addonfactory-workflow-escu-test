@@ -1,7 +1,9 @@
 {
     "extends": [
         "config:base",
-        "group:all"
+        "group:all",
+        ":semanticCommitTypeAll(chore)",
+        ":prHourlyLimit2"
     ],
     "force": {
         "constraints": {
