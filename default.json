@@ -23,7 +23,13 @@
                 "matchPackageNames": [
                     "python"
                 ]
-            }
+            },
+            {
+            "matchPackageNames": [
+                "urllib3"
+            ],
+            "allowedVersions": "<2.0.0"
+        }
         ]
     },
     "enabledManagers": [
